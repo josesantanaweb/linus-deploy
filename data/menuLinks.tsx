@@ -1,10 +1,8 @@
 import RealState from "@/components/UI/Icons/RealState";
 import Leading from "@/components/UI/Icons/Lending";
 import ShieldCheck16 from "@/components/UI/Icons/ShieldCheck16";
-
 import Docs from "@/components/UI/Icons/Docs";
 import Faqs from "@/components/UI/Icons/Faqs";
-
 import {
   discordLink,
   twitterLink,
@@ -20,18 +18,17 @@ import Marketplace from "@/components/UI/Icons/Marketplace";
 import ChartBar from "@/components/UI/Icons/ChartBar";
 import Staking from "@/components/UI/Icons/Staking";
 import Shop from "@/components/UI/Icons/Shop";
-
 export const menuLinksLanding = [
   {
     name: "Home",
     href: "/",
   },
   {
-    name: "About Us",
+    name: "Roadmap",
     href: "#section2",
   },
   {
-    name: "How to buy",
+    name: "Bridge",
     href: "#section3",
   },
   {
@@ -39,7 +36,6 @@ export const menuLinksLanding = [
     href: "#section3",
   },
 ];
-
 export const menuLinksApp = [
   {
     name: "Home",
