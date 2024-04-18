@@ -59,6 +59,13 @@ body {
   background: linear-gradient(90deg, #409BDD 0%, #225377 100.07%);
 }
 
+.line-gradient{
+  background: linear-gradient(90deg, rgba(66, 164, 235, 0.00) 0%, #42A4EB 49.5%, rgba(66, 164, 235, 0.00) 100%);
+}
+.line-gradient-vertical{
+  background: linear-gradient(270deg, rgba(66, 164, 235, 0.00) 0%, #42A4EB 49.5%, rgba(66, 164, 235, 0.00) 100%);
+}
+
 .landing-container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;

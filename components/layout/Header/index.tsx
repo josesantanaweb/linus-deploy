@@ -1,34 +1,14 @@
 "use client";
 import { LogoHeader } from "@/components/Logo";
 import useStore from "@/store";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MenuMobileLanding } from "@/components/MenuMobile";
 import { NavbarLanding } from "@/components/layout/Utils/Navbar";
 import AccountHandler from "@/components/layout/Utils/Navbar/AccountHandler";
 import Button from "@/components/UI/Button";
 import { HeaderDecorator } from "@/components/layout/BackgroundDecorator";
+import useMediaQuery  from "@/hooks/useMediaQuery";
 
-// Función para saber el tamaño de la pantalla
-function useMediaQuery(query: any) {
-  const [matches, setMatches] = useState(true);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(query);
-    setMatches(mediaQuery.matches);
-
-    const listener = (e: any) => {
-      setMatches(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", listener);
-
-    return () => {
-      mediaQuery.removeEventListener("change", listener);
-    };
-  }, [query]);
-
-  return matches;
-}
 export const HeaderLanding = ({
   className = "",
 }: {
@@ -42,7 +22,7 @@ export const HeaderLanding = ({
       <div className="w-[90%] mx-auto mt-5 flex justify-center">
         <div className="w-[calc(100%-20px)] max-w-[1820px] z-[10]">
           <div
-            className={`w-[100%] flex items-center z-10 justify-between mb-8`}
+            className={`w-[100%] flex items-center z-10 justify-between max-lg:mb-8`}
           >
             <div className="flex items-center z-10 gap-3">
               <LogoHeader />

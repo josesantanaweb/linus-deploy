@@ -13,10 +13,25 @@ const DMSans = DM_Sans({
   display: 'swap',
 })
 
+const invertirScroll = () => {
+  useEffect(() => {
+    const invertir = (event: WheelEvent) => {
+      event.preventDefault();
+
+      window.scrollBy(0, -event.deltaY);
+    };
+
+    window.addEventListener('wheel', invertir, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', invertir);
+    };
+  }, []);
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [scrollFinish, setScrollFinish] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
-
   useEffect(() => {
     const header = document.getElementById('header');
     if (header) {
@@ -25,7 +40,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
     setIsLoaded(true);
   }, []);
-
+  invertirScroll();
+  
   return (
     <html lang="en" className="antialiased">
       <body suppressHydrationWarning={true} className={`${DMSans.className}`}>

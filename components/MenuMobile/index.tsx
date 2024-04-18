@@ -11,8 +11,8 @@ import Close from "@/components/UI/Icons/Close";
 import ChevronUpRight from "@/components/UI/Icons/ChevronUpRight";
 import AccountHandler from "@/components/layout/Utils/Navbar/AccountHandler";
 
-import SelectorAccoundHandler from "@/components/layout/Utils/SelectorAccoundHandler";
-import SelectorAccoundHandlerSmall from "@/components/layout/Utils/SelectorAccoundHandler/SelectorAccoundHandlerSmall";
+// import SelectorAccoundHandler from "@/components/layout/Utils/SelectorAccoundHandler";
+// import SelectorAccoundHandlerSmall from "@/components/layout/Utils/SelectorAccoundHandler/SelectorAccoundHandlerSmall";
 import useStore from "@/store";
 import ComponentVisible from "@/hooks/useVisible";
 
@@ -93,75 +93,3 @@ export const MenuMobileLanding = () => {
   );
 };
 
-export const MenuMobileApp = () => {
-  const { ref, isVisible, setIsVisible } = ComponentVisible(false);
-
-  return (
-    <div className="lg:hidden flex gap-2.5" ref={ref}>
-      <SelectorAccoundHandlerSmall />
-
-      <button
-        type="button"
-        aria-label={isVisible ? "Close menu" : "Open menu"}
-        className={`btn w-[35px] h-[34px] text-[19px] !rounded-[100px] bg-navy-blue-900 ${
-          isVisible ? "bg-opacity-100 text-white" : "bg-opacity-0"
-        }`}
-        onClick={() => setIsVisible(!isVisible)}
-      >
-        <MenuLine />
-      </button>
-
-      <AnimatePresence>
-        {isVisible && (
-          <motion.div
-            transition={{ duration: 0.5, ease: [0.21, 1.25, 0.64, 1] }}
-            initial={{ right: -328 }}
-            animate={{ right: 0 }}
-            exit={{ right: -328 }}
-            className="absolute top-0 w-[330px] h-screen bg-white bg-opacity-5 backdrop-blur-[20px] py-20 px-5 z-50"
-          >
-            <button
-              type="button"
-              aria-label="Close menu"
-              title="Close menu"
-              className="flex items-center right-5 absolute gap-[5px]"
-              onClick={() => setIsVisible(false)}
-            >
-              <span className="text-xs leading-normal">Close</span>
-              <span className="text-[20px] leading-normal">
-                <Close />
-              </span>
-            </button>
-
-            <div className="pt-10">
-              <SelectorAccoundHandler className="mb-2" />
-
-              <a
-                href="#"
-                className="btn h-[38px] bg-navy-blue-900 hover:bg-oxford-blue-800 !rounded-10 mb-5 text-white gap-[5px]"
-              >
-                <span className="text-xs leading-normal">Account manager</span>
-                <span className="text-sm">
-                  <ChevronUpRight />
-                </span>
-              </a>
-
-              <div>
-                {menuLinksApp.map((link, i) => (
-                  <a
-                    href={link.href}
-                    key={i}
-                    className="text-sm leading-[14px] flex gap-[5px] px-5 py-3 mb-2 last:mb-0 hover:bg-shark-950 hover:text-white rounded-[100px] hover:shadow-[0px_10px_15px_0px_rgba(71,_103,_135,_0.20)] !transition-[background,color,box-shadow]"
-                  >
-                    {link.icon}
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};

@@ -1,37 +1,16 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
-
-function useMediaQuery(query: any) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(query);
-    setMatches(mediaQuery.matches);
-
-    const listener = (e: any) => {
-      setMatches(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", listener);
-
-    return () => {
-      mediaQuery.removeEventListener("change", listener);
-    };
-  }, [query]);
-
-  return matches;
-}
+import useMediaQuery  from "@/hooks/useMediaQuery";
 
 export const FooterDecorator = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   return (
-    <div className="absolute -z-10 h-[1900px] top-0 left-0 right-0 bottom-0 overflow-hidden">
-      <div className="min-w-full min-h-full mx-auto relative">
+    <div className="absolute z-10 h-[1900px] top-0 left-0 right-0 bottom-0 overflow-hidden">
+      <div className="min-w-full min-h-full mx-auto relative z-[200]">
         <Image
           src={"static/images/footer/main-decorator.svg"}
           width={2210}
-          height={1122}
-          className="absolute transform top-[0] left-1/2 -translate-x-1/2 z-10 object-center object-cover max-lg:hidden"
+          height={561}
+          className="absolute transform top-[-150px] left-1/2 -translate-x-1/2 w-[2210px] h-[561px] z-10 object-center object-cover max-lg:hidden"
           alt="Main Decorator"
         />
         <Image
@@ -61,7 +40,7 @@ export const FooterDecorator = () => {
 };
 export const TakeToActionDecorator = () => {
   return (
-    <div className="absolute -z-10 h-[1900px] top-[-700px] left-0 right-0 bottom-0 overflow-hidden">
+    <div className="absolute -z-10 h-[1400px] max-lg:h-[1100px] top-[-400px] left-0 right-0 bottom-0 overflow-hidden">
       <div className="min-w-full min-h-full mx-auto relative">
         <Image
           src={"/static/images/landing/take-to-action/gradient-left.svg"}
@@ -83,6 +62,20 @@ export const TakeToActionDecorator = () => {
           height={397}
           className={`absolute left-0 bottom-10 w-[578px] z-[-20] xl:hidden`}
           alt="Gradient Mobile"
+        />
+        <Image
+          src={"/static/images/landing/take-to-action/green.svg"}
+          width={87}
+          height={87}
+          className={`absolute bottom-[15px] left-[-50px] w-[151px] h-[152px] z-[-1] lg:hidden`}
+          alt="Green"
+        />
+        <Image
+          src={"/static/images/landing/take-to-action/blue.svg"}
+          width={87}
+          height={87}
+          className={`absolute bottom-[0px] right-[0px] w-[89px] h-[92px] z-[-1] lg:hidden`}
+          alt="Blue"
         />
       </div>
     </div>
@@ -118,6 +111,43 @@ export const LiquidityBurnedDecorator = () => {
     </div>
   );
 };
+export const RoadmapDecorator = () => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  return (
+    <div className="absolute -z-10 h-[500px] max-xl:h-[600px] max-lg:h-[400px] top-[-50px] max-xl:top-[-200px] max-lg:top-[-90px] left-0 right-0 bottom-0 overflow-hidden max-w-[1920px] mx-auto">
+      <div className="min-w-full min-h-full mx-auto relative">
+        <Image
+          src={"/static/images/landing/roadmap/violet.svg"}
+          width={584}
+          height={401}
+          className="absolute top-0 right-[100px] z-[-1] w-[176px] h-[177px] max-lg:hidden"
+          alt="Violet"
+        />
+        <Image
+          src={"/static/images/landing/roadmap/violet.svg"}
+          width={584}
+          height={401}
+          className="absolute top-0 right-[40px] z-[-1] w-[88px] h-[89px] lg:hidden"
+          alt="Violet"
+        />
+        <Image
+          src={"/static/images/landing/roadmap/green.svg"}
+          width={584}
+          height={401}
+          className="absolute bottom-0 left-[100px] z-[-1] w-[151px] h-[152px] max-lg:hidden"
+          alt="Green"
+        />
+        <Image
+          src={"/static/images/landing/roadmap/green.svg"}
+          width={584}
+          height={401}
+          className="absolute bottom-0 left-[40px] z-[-1] w-[85px] h-[86px] lg:hidden"
+          alt="Green"
+        />
+      </div>
+    </div>
+  );
+};
 export const AboutUsDecorator = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   return (
@@ -139,13 +169,13 @@ export const MainSectionDecorator = () => {
   return (
     <div className="absolute z-[-20] h-[1330px] max-lg:h-[500px] top-[-200px] lg:top-[-600px] left-0 right-0 bottom-0 overflow-hidden">
       <div className="min-w-full min-h-full mx-auto relative">
-        <Image
+        {/* <Image
           src={"/static/images/landing/main-section/gradient-left.svg"}
           width={isDesktop ? 859 : 314}
           height={isDesktop ? 589 : 215}
-          className={`absolute left-0 top-0 w-[859px] max-lg:w-[314px] z-[-1]`}
+          className={`absolute left-0 top-0 w-[859px] max-lg:w-[314px] z-[-1] max-lg:hidden`}
           alt="Gradient Left"
-        />
+        /> */}
       </div>
     </div>
   );

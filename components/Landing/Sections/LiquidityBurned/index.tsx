@@ -1,29 +1,8 @@
 'use client'
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
+import useMediaQuery  from "@/hooks/useMediaQuery";
 import { LiquidityBurnedDecorator, LiquidityBurnedGradients } from "@/components/layout/BackgroundDecorator";
-// import VideoLoop from "../../../../public/static/videos/linus-flames.mp4";
-
-function useMediaQuery(query: any) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(query);
-    setMatches(mediaQuery.matches);
-
-    const listener = (e: any) => {
-      setMatches(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", listener);
-
-    return () => {
-      mediaQuery.removeEventListener("change", listener);
-    };
-  }, [query]);
-
-  return matches;
-}
 const LiquidityBurned = ({
   className = "",
   id,

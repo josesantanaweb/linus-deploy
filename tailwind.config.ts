@@ -7,9 +7,9 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    fontFamily: {
+    /* fontFamily: {
       'chakra-petch': ['Chakra Petch', 'sans-serif'],
-    },
+    }, */
     transitionDuration: {
       DEFAULT: '100ms',
       '300': '300ms', // Agregar la duración deseada
